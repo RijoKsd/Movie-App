@@ -1,4 +1,4 @@
-const TvSeriesIcon = ({ fill }: Record<string, string>) => {
+const TvSeriesIcon = ({ fill="#fff" }: Record<string, string>) => {
   return (
     <>
       <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
