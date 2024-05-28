@@ -14,7 +14,7 @@ interface MovieCardProps {
 const MovieCard = ({ movie }: MovieCardProps) => {
   const { dispatch } = useContext(MovieContext);
   const handleToggleBookmark = (id: string) => {
-    dispatch({ type: "TOOGLE BOOKMARK", id });
+    dispatch({ type: "TOGGLE_BOOKMARK", id });
   };
   return (
     <Card

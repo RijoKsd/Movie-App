@@ -22,7 +22,7 @@ const navLinks = [
     link: "/movies",
   },
   {
-    name: "Tc Series",
+    name: "TV Series",
     icon: <GiFilmSpool />,
     link: "/tv-series",
   },

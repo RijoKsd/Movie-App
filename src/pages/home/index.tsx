@@ -1,13 +1,13 @@
+import  { useState, SetStateAction, useContext } from "react";
+import Layout from "../../Layout";
 import {
   Box,
-  InputAdornment,
-  InputBase,
   Paper,
+  InputBase,
+  InputAdornment,
   Typography,
 } from "@mui/material";
-import Layout from "../../Layout";
-import { SetStateAction, useContext, useState } from "react";
-import { CiSearch } from "react-icons/ci";
+import SearchIcon from "../../assets/icons/icon-search.svg";
 import MovieTrendList from "../../components/movie-list/movieTrendList";
 import MovieList from "../../components/movie-list";
 import { MovieDataType } from "../../assets/data";
@@ -19,7 +19,8 @@ const Home = () => {
   const { state } = useContext(MovieContext);
   const { movies } = state;
   const trendingList = movies.filter((item) => item.isTrending === true);
-  const recommenedList = movies.filter((item) => item.isTrending !== true);
+  const recommendList = movies.filter((item) => item.isTrending !== true);
+
   const handleSearch = (e: { target: { value: SetStateAction<string> } }) => {
     setSearch(e.target.value);
     const newList = movies.filter((movie) =>
@@ -43,52 +44,49 @@ const Home = () => {
         >
           <InputBase
             placeholder="Search for movies or TV series"
-            value={search}
-            onChange={handleSearch}
             sx={{
               ml: 1,
               flex: 1,
               color: "white",
               border: "none",
             }}
+            value={search}
+            onChange={handleSearch}
             startAdornment={
               <InputAdornment position="start">
-                <CiSearch
-                  style={{
-                    fontSize: "1.5rem",
-                    color: "white",
-                  }}
+                <img
+                  src={SearchIcon}
+                  alt="search icon"
+                  width={20}
+                  height={20}
                 />
               </InputAdornment>
             }
           />
         </Paper>
       </Box>
-      {/* movie showing section */}
       <Box py={2} px={4}>
         {search === "" ? (
           <Box width="100%">
-            {/*  trending section */}
             <Box width="100%">
               <Typography variant="h5" component="h1" my={6} fontWeight={400}>
-                Trending Movies
+                Trending
               </Typography>
               <MovieTrendList trendingList={trendingList} />
             </Box>
-
-            {/*  Recommended  section */}
             <Box width="100%">
               <Typography variant="h5" component="h1" my={6} fontWeight={400}>
-                Recommended For you
+                Recommended For You
               </Typography>
               <MovieList recommendList={recommendList} />
             </Box>
           </Box>
         ) : (
           <Box width="100%">
-            <Typography variant="h5" component="h1" my={6} fontWeight={400}>
-              Content will be available soon
+            <Typography>
+              Found {searchList.length} results for "{search}"{""}
             </Typography>
+            <MovieList recommendList={searchList} />
           </Box>
         )}
       </Box>

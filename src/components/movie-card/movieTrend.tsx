@@ -14,7 +14,7 @@ interface MovieTrendCardProps {
 const MovieTrendCard = ({ movie }: MovieTrendCardProps) => {
   const { dispatch } = useContext(MovieContext);
   const handleToggleBookmark = (id: string) => {
-    dispatch({ type: "TOOGLE BOOKMARK", id });
+    dispatch({ type: "TOGGLE_BOOKMARK", id });
   };
 
   return (
@@ -27,7 +27,7 @@ const MovieTrendCard = ({ movie }: MovieTrendCardProps) => {
         style={{
           padding: 0,
           position: "relative",
-          overflowX: "scroll",
+          // overflowX: "scroll",
           display: "flex",
         }}
       >
@@ -115,6 +115,8 @@ const MovieTrendCard = ({ movie }: MovieTrendCardProps) => {
             {movie.title}
           </Typography>
         </Stack>
+
+        {/* bookmark */}
         <Box
           style={{
             position: "absolute",
