@@ -17,8 +17,7 @@ const TvSeries = () => {
   const { state } = useContext(MovieContext);
   const { movies } = state;
   const tvSeries = movies.filter((movie) => movie.category === "TV Series");
-  console.log(tvSeries, "tvSeries");
-
+ 
   const handleSearch = (e: { target: { value: SetStateAction<string> } }) => {
     setSearch(e.target.value);
     const newList = movies.filter((movie) =>
