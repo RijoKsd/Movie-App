@@ -1,5 +1,5 @@
 import { Grid, Paper } from "@mui/material";
- import { MovieDataType } from "../../assets/data";
+import { MovieDataType } from "../../assets/data";
 import MovieCard from "../movie-card";
 
 interface MovieListProps {
@@ -7,7 +7,7 @@ interface MovieListProps {
 }
 
 const MovieList = ({ recommendList }: MovieListProps) => {
-   return (
+  return (
     <Grid container spacing={2}>
       {recommendList.map((item) => (
         <Grid item key={item.id} xs={12} sm={6} md={4} lg={3}>
